@@ -25,6 +25,33 @@ class Admin_Bootstrap extends Zend_Application_Module_Bootstrap {
          }
      }
 
+    protected function _initRouter(){
+        $front = Zend_Controller_Front::getInstance();
+        $router = $front->getRouter();
+
+        $routes = array();
+
+        $routes['admin'] = new Zend_Controller_Router_Route(
+            '/admin',
+            array(
+                'module' => 'admin',
+                'controller' => 'index',
+                'action' => 'index'
+            )
+        );
+
+        $routes['admin-login'] = new Zend_Controller_Router_Route(
+            '/login',
+            array(
+                'module' => 'admin',
+                'controller' => 'author',
+                'action' => 'login'
+            )
+        );
+
+        $router->addRoutes($routes);
+    }
+
      protected function _initModuleLangArray()
      {
          //Now let's define our language array to the registry so that we can use it...

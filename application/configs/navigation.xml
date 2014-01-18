@@ -18,6 +18,19 @@
                     <resource>guest</resource>
                     <privilege>view</privilege>
                 </blog>
+                <admin-login>
+                    <label>admin-login</label>
+                    <route>admin-login</route>
+                    <resource>guest</resource>
+                    <privilege>view</privilege>
+                    <visible>0</visible>
+                </admin-login>
+                <admin>
+                    <label>admin</label>
+                    <route>admin</route>
+                    <resource>admin</resource>
+                    <privilege>view</privilege>
+                </admin>
             </pages>
         </home>
     </nav>
