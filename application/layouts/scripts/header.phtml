@@ -1,49 +1,52 @@
 <?php echo $this->doctype() ?>
 
-<!--[if lt IE 7]><html lang="en" class="ie ie6"><![endif]-->
-<!--[if IE 7]><html lang="en" class="ie7"><![endif]-->
-<!--[if IE 8]><html lang="en" class="ie8"><![endif]-->
-<!--[if IE 9]><html lang="en" class="ie9"><![endif]-->
-<!--[if gt IE 9]><html lang="en"><![endif]-->
-<!--[if !IE]>--><html lang="en"><!--<![endif]-->
+<!--[if lt IE 7]>
+<html lang="en" class="ie ie6"><![endif]-->
+<!--[if IE 7]>
+<html lang="en" class="ie7"><![endif]-->
+<!--[if IE 8]>
+<html lang="en" class="ie8"><![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9"><![endif]-->
+<!--[if gt IE 9]>
+<html lang="en"><![endif]-->
+<!--[if !IE]>-->
+<html lang="en"><!--<![endif]-->
 
 <head>
-  <?php
-  echo $this->headMeta()->appendHttpEquiv('Content-Type','text/html; charset=UTF-8');
-  $this->headLink()->headLink(array('rel' => 'shortcut icon', 'href' => '/favicon.png'), 'PREPEND');
-  echo $this->headTitle($this->title . 'Zend Blog');
-  ?>
+    <?php
+    echo $this->headMeta()->appendHttpEquiv('Content-Type', 'text/html; charset=UTF-8');
+    $this->headLink()->headLink(array('rel' => 'shortcut icon', 'href' => $this->baseUrl() . '/favicon.png'), 'PREPEND');
+    echo $this->headTitle($this->title . 'Zend Blog');
+    ?>
 
-  <!-- Framework CSS -->
-  <?php
-  $this->headLink()->appendStylesheet('/css/blueprint/screen.css');
-  $this->headLink()->appendStylesheet('/css/blueprint/print.css', 'print');
-  $this->headLink()->appendStylesheet('/css/blueprint/ie.css', 'screen', 'lt IE 8');
-  ?>
-  <!-- Import fancy-type plugin for the sample page. -->
-  <?php
-  $this->headLink()->appendStylesheet('/css/blueprint/plugins/fancy-type/screen.css');
-  $this->headLink()->appendStylesheet('/css/mystyle.css');
+    <!-- Framework CSS -->
+    <?php
+    $this->headLink()->appendStylesheet($this->baseUrl() . '/css/blueprint/screen.css');
+    $this->headLink()->appendStylesheet($this->baseUrl() . '/css/blueprint/print.css', 'print');
+    $this->headLink()->appendStylesheet($this->baseUrl() . '/css/blueprint/ie.css', 'screen', 'lt IE 8');
+    ?>
+    <!-- Import fancy-type plugin for the sample page. -->
+    <?php
+    $this->headLink()->appendStylesheet($this->baseUrl() . '/css/blueprint/plugins/fancy-type/screen.css');
+    $this->headLink()->appendStylesheet($this->baseUrl() . '/css/mystyle.css');
 
-  echo $this->headLink();
+    echo $this->headLink();
 
-  $this->headScript()->appendFile('/js/jquery.js');
-  $this->headScript()->appendFile('/js/modernizr.js');
- 
-  echo $this->headScript();
-  ?>
+    $this->headScript()->appendFile($this->baseUrl() . '/js/jquery.js');
+    $this->headScript()->appendFile($this->baseUrl() . '/js/modernizr.js');
+
+    echo $this->headScript();
+    ?>
 </head>
 
 <body id="<?php echo $this->bodyId ?>" class="<?php echo $this->bodyClass ?>">
-    <div class="container">
-        <header class="span-24">
-            <nav class="span-24">
-                <ul id="menu" class="span-24">
-                    <li class="home span-4"><a href="/"><span class="hide_text">home</span></a></li>                    
-                    <li class="blog span-4 last"><a href="/blog"><span class="hide_text">blog</span></a></li>
-                </ul>
-            </nav>
-        </header>
+<div class="container">
+    <header class="span-24">
+        <nav class="span-24">
+            <?php echo $this->navigation()->menu()->setMinDepth(1) ?>
+        </nav>
+    </header>
 
 
-        <section class="content span-24">
+    <section class="content span-24">
